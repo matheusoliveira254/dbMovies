@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Movie {
+struct Movie: Codable {
     let title, image, overview: String?
     
     
@@ -17,6 +17,6 @@ enum CodingKeys: String, CodingKey {
     case image = "backdrop_path"
 }
 
-struct movieData {
-    let movies: [Movie]
+struct MovieData: Codable {
+    let movies: [Movie]?
 }
