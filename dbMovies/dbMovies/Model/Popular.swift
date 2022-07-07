@@ -8,9 +8,13 @@
 import UIKit
 
 struct Movie {
-    let title: String
-    let image: UIImage
+    let title, image, overview: String?
     
+    
+}
+
+enum CodingKeys: String, CodingKey {
+    case image = "backdrop_path"
 }
 
 struct movieData {
