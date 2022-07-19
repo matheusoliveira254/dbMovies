@@ -7,16 +7,14 @@
 
 import UIKit
 
+struct MovieData: Codable {
+    let movies: [Movie]?
+}
+
 struct Movie: Codable {
     let title, image, overview: String?
-    
-    
 }
 
 enum CodingKeys: String, CodingKey {
     case image = "backdrop_path"
-}
-
-struct MovieData: Codable {
-    let movies: [Movie]?
 }

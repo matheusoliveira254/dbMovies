@@ -8,14 +8,13 @@
 import UIKit
 
 
-var fetchedMovies = ["Top Gun", "Encanto", "What is a Woman", "LightYear", "Guy", "2000 Mules"]
-
 class MovieDisplayViewController: UIViewController  {
    
     //MARK: IBOutlet
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     //MARK: Properties
+    let viewModel = PopularViewModel()
     
     //MARK: View Life Cycle
     override func viewDidLoad() {
@@ -38,27 +37,10 @@ class MovieDisplayViewController: UIViewController  {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("View Will Appear")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("View Did Appear")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("View Will Disappear")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("View Did Disappear")
-    }
     
     //MARK: IBActions
+    
+    
     
     //MARK: Methods
 
@@ -67,14 +49,13 @@ class MovieDisplayViewController: UIViewController  {
 
 extension MovieDisplayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchedMovies.count
+        viewModel.popular.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCellId", for: indexPath) as! MyCell
         
-        
-        cell.myButton.titleLabel?.text = fetchedMovies[indexPath.row]
+        cell.myButton.titleLabel = Movie.title
         
         return cell
     }

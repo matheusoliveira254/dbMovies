@@ -8,8 +8,11 @@
 import UIKit
 
 class MyCell: UICollectionViewCell {
-    @IBOutlet weak var myButton: UIButton!
+    @IBOutlet weak var myLbl: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
     
-    
+    func cellSetUp(with movie: Movie) {
+        cellImage.image = movie.image
+        myLbl.text = movie.title
+    }
 }
