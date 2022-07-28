@@ -12,7 +12,7 @@ class MyCell: UICollectionViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     
     func cellSetUp(with movie: Movie) {
-        cellImage.image = movie.image
+        cellImage.loadImageFrom(imageEndPoint: movie.image ?? "")
         myLbl.text = movie.title
     }
 }

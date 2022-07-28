@@ -9,9 +9,13 @@ import Foundation
 
 class Network {
     
-    var baseURL = "https://api.themoviedb.org/"
-    var popularity = "3/movie/550?api_key="
+    var baseURL = "https://api.themoviedb.org/3/movie"
     var keyAPI = "bfb9225fcd93091f6a7e19e6e22a3b59"
+    var pathURL = "now_playing"
+    var queryURL = "api_key"
+
+    
+  //"https://api.themoviedb.org/3/movie/550?api_key=bfb9225fcd93091f6a7e19e6e22a3b59"
     
     func getData<T: Codable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         
@@ -36,6 +40,6 @@ class Network {
             }
         }
         dataTask.resume()
+        
     }
-    
 }

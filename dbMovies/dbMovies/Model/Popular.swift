@@ -8,13 +8,20 @@
 import UIKit
 
 struct MovieData: Codable {
-    let movies: [Movie]?
+    let results: [Movie]?
 }
 
 struct Movie: Codable {
-    let title, image, overview: String?
+    let title: String?
+    let image: String?
+    let overview: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case image = "poster_path"
+        case overview
+    }
 }
 
-enum CodingKeys: String, CodingKey {
-    case image = "backdrop_path"
-}
+
+

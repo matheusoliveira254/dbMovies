@@ -19,22 +19,7 @@ class MovieDisplayViewController: UIViewController  {
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ViewDid Load")
-        myCollectionView.dataSource = self
-        
-        self.view.layoutIfNeeded()
-        let itemsPerRow = 3
-        let cellWidth = self.myCollectionView.bounds.width / CGFloat(itemsPerRow)
-        
-        let myLayout = UICollectionViewFlowLayout()
-        myLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
-        
-        myLayout.sectionInset = UIEdgeInsets.zero
-        myLayout.minimumLineSpacing = 5.0
-        myLayout.minimumInteritemSpacing = 0.0
-        
-        myCollectionView.collectionViewLayout = myLayout
-        
+       setUI()
     }
     
     
@@ -43,21 +28,39 @@ class MovieDisplayViewController: UIViewController  {
     
     
     //MARK: Methods
-
+    func networkCall() {
+        viewModel.fetchPopularMovies { isCompleted in
+            if isCompleted {
+                DispatchQueue.main.async {
+                    self.myCollectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func setUI() {
+        myCollectionView.dataSource = self
+        myCollectionView.delegate = self
+        networkCall()
+    }
 
 }
 
-extension MovieDisplayViewController: UICollectionViewDataSource {
+extension MovieDisplayViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.popular.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCellId", for: indexPath) as! MyCell
-        
-        cell.myButton.titleLabel = Movie.title
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.cellIdentifier, for: indexPath) as! MyCell
+        let popularMovies = viewModel.popular[indexPath.row]
+        cell.cellSetUp(with: popularMovies)
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: 200, height: 200)
+       }
     
 }
