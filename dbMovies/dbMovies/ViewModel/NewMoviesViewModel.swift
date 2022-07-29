@@ -7,8 +7,8 @@
 
 import Foundation
 
-class PopularViewModel: Network {
-    var popular: [Movie] = []
+class NewMoviesViewModel: Network {
+    var newMovies: [Movie] = []
     var errorMessage: String = ""
     let cellIdentifier = "MyCell"
     
@@ -27,7 +27,7 @@ class PopularViewModel: Network {
             switch response {
             case.success(let movieData):
                 guard let popMovies = movieData.results else { return }
-                self.popular = popMovies
+                self.newMovies = popMovies
                 completion(true)
                 case.failure(let failure):
                 self.errorMessage = failure.localizedDescription

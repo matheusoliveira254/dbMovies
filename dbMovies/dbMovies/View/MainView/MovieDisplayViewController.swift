@@ -14,7 +14,7 @@ class MovieDisplayViewController: UIViewController  {
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     //MARK: Properties
-    let viewModel = PopularViewModel()
+    let viewModel = NewMoviesViewModel()
     
     //MARK: View Life Cycle
     override func viewDidLoad() {
@@ -41,6 +41,10 @@ class MovieDisplayViewController: UIViewController  {
     func setUI() {
         myCollectionView.dataSource = self
         myCollectionView.delegate = self
+        myCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+
+        
+        
         networkCall()
     }
 
@@ -48,19 +52,19 @@ class MovieDisplayViewController: UIViewController  {
 
 extension MovieDisplayViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.popular.count
+        viewModel.newMovies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.cellIdentifier, for: indexPath) as! MyCell
-        let popularMovies = viewModel.popular[indexPath.row]
+        let popularMovies = viewModel.newMovies[indexPath.row]
         cell.cellSetUp(with: popularMovies)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 200, height: 200)
+            return CGSize(width: 200, height: 300)
        }
     
 }
