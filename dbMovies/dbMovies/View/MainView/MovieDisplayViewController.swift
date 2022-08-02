@@ -68,7 +68,7 @@ extension MovieDisplayViewController: UICollectionViewDataSource, UICollectionVi
             return CGSize(width: 200, height: 300)
        }
 
-//    This is another way to perform the segue action after clicking cell, we would just need to add an identifier "segue1" to the storyboard
+//    This is another way to perform the segue action after clicking cell, we would just need to add an identifier "segue1" to the storyboard reference
 //
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //
@@ -93,8 +93,8 @@ extension MovieDisplayViewController: UICollectionViewDelegate {
         guard let movieDetailsViewController = storyboard.instantiateViewController(withIdentifier: "detailScreen") as? MovieDetailsViewController else {return}
         let selectedMovie = viewModel.newMovies[indexPath.row]
         movieDetailsViewController.movie = selectedMovie
-        guard let cel = myCollectionView.cellForItem(at: indexPath) as? MyCell else { return }
-        movieDetailsViewController.image = cel.getCellImage()
+        guard let cell = myCollectionView.cellForItem(at: indexPath) as? MyCell else { return }
+        movieDetailsViewController.image = cell.getCellImage()
         self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
         
         // This is how is done if we don't have the navigationController instead of the line above       self.present(movieDetailsViewController, animated: true)
