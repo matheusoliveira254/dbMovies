@@ -77,7 +77,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aFU-CH-7EI"/>
                     <connections>
-                        <outlet property="myCollectionView" destination="CEt-DU-Wwg" id="WBf-mD-huo"/>
+                        <outlet property="moviesCollectionView" destination="CEt-DU-Wwg" id="WBf-mD-huo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

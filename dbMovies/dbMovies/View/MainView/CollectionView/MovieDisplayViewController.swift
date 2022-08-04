@@ -11,7 +11,7 @@ import UIKit
 class MovieDisplayViewController: UIViewController  {
    
     //MARK: IBOutlet
-    @IBOutlet weak var myCollectionView: UICollectionView!
+    @IBOutlet weak var moviesCollectionView: UICollectionView!
     
     //MARK: Properties
     let viewModel = NewMoviesViewModel()
@@ -33,16 +33,16 @@ class MovieDisplayViewController: UIViewController  {
         viewModel.fetchPopularMovies { isCompleted in
             if isCompleted {
                 DispatchQueue.main.async {
-                    self.myCollectionView.reloadData()
+                    self.moviesCollectionView.reloadData()
                 }
             }
         }
     }
     
     func setUI() {
-        myCollectionView.dataSource = self
-        myCollectionView.delegate = self
-        myCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        moviesCollectionView.dataSource = self
+        moviesCollectionView.delegate = self
+        moviesCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
 
         
         
@@ -93,7 +93,7 @@ extension MovieDisplayViewController: UICollectionViewDelegate {
         guard let movieDetailsViewController = storyboard.instantiateViewController(withIdentifier: "detailScreen") as? MovieDetailsViewController else {return}
         let selectedMovie = viewModel.newMovies[indexPath.row]
         movieDetailsViewController.movie = selectedMovie
-        guard let cell = myCollectionView.cellForItem(at: indexPath) as? MyCell else { return }
+        guard let cell = moviesCollectionView.cellForItem(at: indexPath) as? MyCell else { return }
         movieDetailsViewController.image = cell.getCellImage()
         self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
         
@@ -102,3 +102,5 @@ extension MovieDisplayViewController: UICollectionViewDelegate {
         
     }
 }
+
+

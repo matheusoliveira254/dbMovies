@@ -10,6 +10,7 @@
 		A1783DAD2894767900FD9618 /* MovieDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1783DAC2894767900FD9618 /* MovieDetails.storyboard */; };
 		A1783DAF2894778400FD9618 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1783DAE2894778400FD9618 /* MovieDetailsViewController.swift */; };
 		A1783DB22894780F00FD9618 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1783DB12894780F00FD9618 /* MovieDetailsViewModel.swift */; };
+		A1783DB8289C44EE00FD9618 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1783DB7289C44EE00FD9618 /* TableViewCell.swift */; };
 		A1AF1E0E288651D300A66654 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AF1E0D288651D300A66654 /* UIImageViewExtension.swift */; };
 		A1F020522864D29A00C3F072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F020512864D29A00C3F072 /* AppDelegate.swift */; };
 		A1F020542864D29A00C3F072 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F020532864D29A00C3F072 /* SceneDelegate.swift */; };
@@ -47,6 +48,7 @@
 		A1783DAC2894767900FD9618 /* MovieDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetails.storyboard; sourceTree = "<group>"; };
 		A1783DAE2894778400FD9618 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		A1783DB12894780F00FD9618 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
+		A1783DB7289C44EE00FD9618 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		A1AF1E0D288651D300A66654 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		A1F0204E2864D29A00C3F072 /* dbMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dbMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F020512864D29A00C3F072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,9 +97,8 @@
 		A1783DAB289472BC00FD9618 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				A1F020572864D29A00C3F072 /* Main.storyboard */,
-				A1F0208D2864DE2F00C3F072 /* MyCell.swift */,
-				A1F020552864D29A00C3F072 /* MovieDisplayViewController.swift */,
+				A1783DB3289C3B9C00FD9618 /* CollectionView */,
+				A1783DB6289C3C3000FD9618 /* TableView */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -109,6 +110,24 @@
 				A1783DAE2894778400FD9618 /* MovieDetailsViewController.swift */,
 			);
 			path = MovieDetails;
+			sourceTree = "<group>";
+		};
+		A1783DB3289C3B9C00FD9618 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				A1F020572864D29A00C3F072 /* Main.storyboard */,
+				A1F0208D2864DE2F00C3F072 /* MyCell.swift */,
+				A1F020552864D29A00C3F072 /* MovieDisplayViewController.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		A1783DB6289C3C3000FD9618 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				A1783DB7289C44EE00FD9618 /* TableViewCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		A1AF1E10288651EA00A66654 /* Extension */ = {
@@ -361,6 +380,7 @@
 				A1783DAF2894778400FD9618 /* MovieDetailsViewController.swift in Sources */,
 				A1F020522864D29A00C3F072 /* AppDelegate.swift in Sources */,
 				A1F0208B2864D61300C3F072 /* Network.swift in Sources */,
+				A1783DB8289C44EE00FD9618 /* TableViewCell.swift in Sources */,
 				A1F0208E2864DE2F00C3F072 /* MyCell.swift in Sources */,
 				A1F020862864D57000C3F072 /* NewMoviesViewModel.swift in Sources */,
 				A1AF1E0E288651D300A66654 /* UIImageViewExtension.swift in Sources */,
