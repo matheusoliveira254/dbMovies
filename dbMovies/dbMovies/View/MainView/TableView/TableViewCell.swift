@@ -11,6 +11,7 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var categoriesLbl: UILabel!
+    let viewModel1 = NewMoviesViewModel()
     var navigationController: UINavigationController?
     
     let cellIdentifier = "CollectionViewCell"
@@ -30,7 +31,9 @@ class TableViewCell: UITableViewCell {
         }
     }
     
-    
+    func setCategoryLblText() {
+         categoriesLbl.text = viewModel1.movieCategory
+     }
 }
 
 extension TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

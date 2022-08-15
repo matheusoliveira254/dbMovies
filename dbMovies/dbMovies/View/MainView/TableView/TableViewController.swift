@@ -49,6 +49,7 @@ class TableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as? TableViewCell else {return UITableViewCell()}
         
         let movies = viewModel.newMovies
+        cell.setCategoryLblText()
         cell.setMovies(movies: movies)
         cell.navigationController = self.navigationController
         return cell
