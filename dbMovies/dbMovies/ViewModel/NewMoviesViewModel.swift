@@ -10,9 +10,9 @@ import Foundation
 class NewMoviesViewModel: Network {
     var newMovies: [Movie] = []
     var errorMessage: String = ""
-    let cellIdentifier = "MyCell"
+    let movieCategory = "New Movies"
     
-    func fetchPopularMovies(completion: @escaping (Bool) -> Void) {
+    func fetchNewMovies(completion: @escaping (Bool) -> Void) {
         
         guard var url = URL(string: baseURL) else { return }
         url.appendPathComponent(pathURL)
